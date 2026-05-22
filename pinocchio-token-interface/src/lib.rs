@@ -229,7 +229,7 @@ mod tests {
         let (_buf, view) = make_account([0u8; 32], data);
         assert_eq!(
             TokenAccount::from_account_view(&view).err().unwrap(),
-            ProgramError::InvalidAccountData,
+            ProgramError::InvalidAccountOwner,
         );
     }
 
@@ -284,7 +284,7 @@ mod tests {
         let (_buf, view) = make_account([0u8; 32], data);
         assert_eq!(
             Mint::from_account_view(&view).err().unwrap(),
-            ProgramError::InvalidAccountData,
+            ProgramError::InvalidAccountOwner,
         );
     }
 
